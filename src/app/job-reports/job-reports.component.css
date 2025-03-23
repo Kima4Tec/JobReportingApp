@@ -10,8 +10,6 @@
 
 table {
     width: 98%;
-    /* table-layout: fixed; */
-    /* Sikrer fast layout */
 }
 
 th,
@@ -22,10 +20,9 @@ td {
 
 th {
     width: 150px;
-    /* Du kan justere denne værdi */
+
 }
 
 td {
     width: 150px;
-    /* Du kan justere denne værdi */
 }
