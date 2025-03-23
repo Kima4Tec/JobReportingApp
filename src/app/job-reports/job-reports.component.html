@@ -1,0 +1,99 @@
+<h1 class="pagetitle">Virksomheder</h1>
+
+<!-- Formular til at tilføje en ny virksomhed -->
+<div class="container mt-3">
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="name">Navn:</label></div>
+        <div class="col-6"><input type="text" class="form-control" id="name" [(ngModel)]="company.name" name="name"
+                required></div>
+    </div>
+
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="location">Placering:</label></div>
+        <div class="col-6"><input type="text" class="form-control" id="location" [(ngModel)]="company.location"
+                name="location"></div>
+    </div>
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="companySize">Virksomhedsstørrelse:</label></div>
+        <div class="col-6"><input type="number" class="form-control" id="companySize" [(ngModel)]="company.companySize"
+                name="companySize"></div>
+    </div>
+
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="creating">Hvad laver de?</label></div>
+        <div class="col-6"><input type="text" class="form-control" id="creating" [(ngModel)]="company.creating"
+                name="creating" required></div>
+    </div>
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="facts">Interessante fakta:</label></div>
+        <div class="col-6"><input type="text" class="form-control" id="facts" [(ngModel)]="company.facts" name="facts">
+        </div>
+    </div>
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="offering">Hvad kan jeg tilbyde?:</label></div>
+        <div class="col-6"><input type="text" class="form-control" id="offering" [(ngModel)]="company.offering"
+                name="offering">
+        </div>
+    </div>
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="companyoffer">Hvad kan de tilbyde?:</label></div>
+        <div class="col-6"><input type="text" class="form-control" id="companyoffer" [(ngModel)]="company.companyOffer"
+                name="companyoffer">
+        </div>
+    </div>
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="motivation">Motivation for at søge:</label></div>
+        <div class="col-6"><input type="text" class="form-control" id="motivation" [(ngModel)]="company.motivation"
+                name="motivation">
+        </div>
+    </div>
+    <div class="row mb-2 align-items-center">
+        <div class="col-2 text-end"><label for="notes">Noter:</label></div>
+        <div class="col-6"><input type="text" class="form-control" id="notes" [(ngModel)]="company.notes" name="notes">
+        </div>
+
+
+        <div class="col-2">
+            <button class="btn btn-success rounded-pill" (click)="createCompany()">Opret</button>&nbsp;
+            <button class="btn btn-warning rounded-pill" (click)="updateCompany()">Opdater</button>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<!-- Tabel til at vise eksisterende virksomheder -->
+<table class="table table-bordered indent">
+    <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Placering</th>
+            <th>Firmastørrelse</th>
+            <th>Hvad laver de?</th>
+            <th>Fakta</th>
+            <th>Hvad kan jeg tilbyde?</th>
+            <th>Hvad kan de tilbyde?</th>
+            <th>Motivation</th>
+            <th>Noter</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let company of companies">
+            <td>{{ company.name }}</td>
+            <td>{{ company.location }}</td>
+            <td>{{ company.companySize }}</td>
+            <td>{{ company.creating }}</td>
+            <td>{{ company.facts }}</td>
+            <td>{{ company.offering }}</td>
+            <td>{{ company.companyOffer }}</td>
+            <td>{{ company.motivation }}</td>
+            <td>{{ company.notes }}</td>
+
+            <td>
+                <button class="btn btn-danger" (click)="deleteCompany(company.id)">Slet</button>&nbsp;
+                <button class="btn btn-primary" (click)="editCompany(company)">Rediger</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
